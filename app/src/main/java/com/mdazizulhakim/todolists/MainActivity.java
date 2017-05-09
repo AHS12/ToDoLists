@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     String IDlist[], TASKlist[], DoneId[], DoneTask[];
     Long DATElist[];
 
-
+    ArrayAdapter<String> undoneTaskAdapter;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -201,8 +202,8 @@ public class MainActivity extends AppCompatActivity {
         final String List[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
         //Showing Data in Listview With CheckBox
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, TASKlist);
-        UnDone_Task.setAdapter(adapter);
+        undoneTaskAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, TASKlist);
+        UnDone_Task.setAdapter(undoneTaskAdapter);
 
         //Creating a Custom OnclickListener for Creating Checkbox Working in ListView
         AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
@@ -284,10 +285,7 @@ public class MainActivity extends AppCompatActivity {
 
         } while (cursor.moveToNext());
 
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, TASKlist);
-        UnDone_Task.setAdapter(adapter);
-
+        undoneTaskAdapter.notifyDatasetChanged();
 
 
 
