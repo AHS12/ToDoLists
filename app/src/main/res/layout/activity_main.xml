@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/activity_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            tools:context="com.mdazizulhakim.todolists.MainActivity">
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="list of some Country with Checkbox"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/addtasklayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView"
+                android:layout_marginTop="30dp">
+
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_action_name" />
+
+                <EditText
+                    android:id="@+id/etxt_Task_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="0.22"
+                    android:ems="10"
+                    android:hint="add a To-Do Task Here"
+                    android:inputType="text|textPersonName" />
+
+                <Button
+                    android:id="@+id/btn_add_task"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="add" />
+                <!--  android:onClick="addUndoneTask" -->
+
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/CList"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/addtasklayout"
+                android:layout_marginTop="30dp"
+                android:choiceMode="multipleChoice"
+                android:divider="@color/colorPrimaryDark"
+                android:dividerHeight="5dp"
+                android:foregroundGravity="center" />
+
+            <Button
+                android:id="@+id/btn_Completed_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="13dp"
+                android:text="Show Completed Task" />
+            <!--   android:onClick="viewDoneTask" -->
+
+            <!--android:choiceMode="multipleChoice" -->
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/bottomsheeet"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="#99CC88"
+        android:elevation="100dp"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/txthead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Completed Task"
+                android:textSize="25sp" />
+
+
+            <ListView
+                android:id="@+id/completed_task"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:layout_marginTop="20dp"
+                android:divider="@android:color/black"
+                android:dividerHeight="5dp" />
+
+            <Button
+                android:id="@+id/btn_Clear_done_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="30dp"
+                android:text="Clear all" />
+            <!--  android:onClick="clearDoneTask" -->
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
